@@ -1,4 +1,5 @@
-﻿import { useState } from "react";
+﻿
+import { useState } from "react";
 import {
   ArrowDown,
   ArrowRight,
@@ -11,6 +12,7 @@ import {
   Cpu,
   Database,
   Globe2,
+  Mail,
   Menu,
   MessageSquare,
   ServerCog,
@@ -18,6 +20,18 @@ import {
   Workflow,
   X,
 } from "lucide-react";
+
+const CONTACT_EMAIL = "youngmuftie@gmail.com";
+
+const WHATSAPP_NUMBER = "2348158884979";
+
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hello Salih, I visited your portfolio and would like to discuss a project.",
+)}`;
+
+const CONTACT_LINK = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+  "Project Inquiry - Salih Meen Portfolio",
+)}`;
 
 const services = [
   {
@@ -87,7 +101,11 @@ const projects = [
     title: "Telegram Marketplace",
     description:
       "A marketplace platform under active development, involving full-stack engineering, backend systems, database architecture and core marketplace functionality.",
-    stack: ["Full-stack development", "Backend engineering", "Marketplace systems"],
+    stack: [
+      "Full-stack development",
+      "Backend engineering",
+      "Marketplace systems",
+    ],
     status: "In development",
     className: "project-visual-two",
   },
@@ -122,8 +140,12 @@ function App() {
       <header className="site-header">
         <div className="nav-wrap container">
           <a className="brand" href="#home" onClick={closeMenu}>
-            <span className="brand-mark">S<span>.</span></span>
-            <span className="brand-name">SALIH<span>MEEN</span></span>
+            <span className="brand-mark">
+              S<span>.</span>
+            </span>
+            <span className="brand-name">
+              SALIH<span>MEEN</span>
+            </span>
           </a>
 
           <button
@@ -135,10 +157,20 @@ function App() {
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
-          <nav className={menuOpen ? "navigation navigation-open" : "navigation"}>
-            <a href="#about" onClick={closeMenu}>About</a>
-            <a href="#services" onClick={closeMenu}>Expertise</a>
-            <a href="#work" onClick={closeMenu}>Selected work</a>
+          <nav
+            className={
+              menuOpen ? "navigation navigation-open" : "navigation"
+            }
+          >
+            <a href="#about" onClick={closeMenu}>
+              About
+            </a>
+            <a href="#services" onClick={closeMenu}>
+              Expertise
+            </a>
+            <a href="#work" onClick={closeMenu}>
+              Selected work
+            </a>
             <a className="nav-contact" href="#contact" onClick={closeMenu}>
               Let's talk <ArrowUpRight size={15} />
             </a>
@@ -159,7 +191,9 @@ function App() {
               <h1>
                 Engineering ideas.
                 <br />
-                <span className="gradient-text">Building possibilities.</span>
+                <span className="gradient-text">
+                  Building possibilities.
+                </span>
               </h1>
 
               <p className="hero-description">
@@ -184,7 +218,10 @@ function App() {
               </div>
             </div>
 
-            <div className="hero-art" aria-label="Abstract digital technology illustration">
+            <div
+              className="hero-art"
+              aria-label="Abstract digital technology illustration"
+            >
               <div className="orbit orbit-one" />
               <div className="orbit orbit-two" />
               <div className="orbit orbit-three" />
@@ -198,9 +235,17 @@ function App() {
                   <Cpu size={54} strokeWidth={1.2} />
                 </div>
                 <div className="core-title">Think. Engineer. Build.</div>
-                <div className="core-subtitle">Technology with purpose.</div>
+                <div className="core-subtitle">
+                  Technology with purpose.
+                </div>
                 <div className="core-bars">
-                  <span /><span /><span /><span /><span /><span /><span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
                 </div>
               </div>
 
@@ -227,10 +272,18 @@ function App() {
         <section className="trust-strip">
           <div className="container trust-inner">
             <span>AREAS OF EXPERTISE</span>
-            <div><Code2 size={17} /> Software Development</div>
-            <div><BrainCircuit size={17} /> Artificial Intelligence</div>
-            <div><Database size={17} /> Backend Systems</div>
-            <div><Globe2 size={17} /> Digital Platforms</div>
+            <div>
+              <Code2 size={17} /> Software Development
+            </div>
+            <div>
+              <BrainCircuit size={17} /> Artificial Intelligence
+            </div>
+            <div>
+              <Database size={17} /> Backend Systems
+            </div>
+            <div>
+              <Globe2 size={17} /> Digital Platforms
+            </div>
           </div>
         </section>
 
@@ -339,11 +392,19 @@ function App() {
                       {project.number === "01" && (
                         <div className="visual-window">
                           <div className="visual-window-bar">
-                            <i /><i /><i />
+                            <i />
+                            <i />
+                            <i />
                           </div>
                           <div className="visual-window-content">
                             <span>THREE17</span>
-                            <strong>EVENTS<br />THAT FEEL<br />LIKE YOU.</strong>
+                            <strong>
+                              EVENTS
+                              <br />
+                              THAT FEEL
+                              <br />
+                              LIKE YOU.
+                            </strong>
                             <small>EVENT STYLING · ATX</small>
                           </div>
                         </div>
@@ -401,7 +462,9 @@ function App() {
             <div className="capability-list">
               {capabilities.map((capability) => (
                 <div className="capability-item" key={capability}>
-                  <span><Check size={15} /></span>
+                  <span>
+                    <Check size={15} />
+                  </span>
                   {capability}
                 </div>
               ))}
@@ -426,8 +489,31 @@ function App() {
               what you want to build.
             </p>
 
-            <a className="button button-primary" href="#about">
-              <MessageSquare size={17} /> Get in touch <ArrowUpRight size={17} />
+            <div className="hero-actions contact-actions">
+              <a
+                className="button button-primary"
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageSquare size={17} />
+                Chat on WhatsApp
+                <ArrowUpRight size={17} />
+              </a>
+
+              <a className="button button-secondary" href={CONTACT_LINK}>
+                <Mail size={17} />
+                Send an Email
+                <ArrowUpRight size={17} />
+              </a>
+            </div>
+
+            <a
+              className="text-link contact-email"
+              href={`mailto:${CONTACT_EMAIL}`}
+            >
+              <Mail size={16} />
+              {CONTACT_EMAIL}
             </a>
 
             <div className="contact-bottom">
@@ -441,16 +527,27 @@ function App() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <a className="brand" href="#home">
-            <span className="brand-mark">S<span>.</span></span>
-            <span className="brand-name">SALIH<span>MEEN</span></span>
+            <span className="brand-mark">
+              S<span>.</span>
+            </span>
+            <span className="brand-name">
+              SALIH<span>MEEN</span>
+            </span>
           </a>
 
           <span>
-            © {new Date().getFullYear()} Salih Al-uthaymeen Qasim. Built with purpose.
+            © {new Date().getFullYear()} Salih Al-uthaymeen Qasim. Built with
+            purpose.
           </span>
 
-          <a href="#home" className="back-top">
-            Back to top <ArrowUpRight size={14} />
+          <a
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="back-top"
+            aria-label="Contact Salih on WhatsApp"
+          >
+            <MessageSquare size={14} /> WhatsApp
           </a>
         </div>
       </footer>
@@ -459,4 +556,3 @@ function App() {
 }
 
 export default App;
-
